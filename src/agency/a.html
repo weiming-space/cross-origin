@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>domain A</title>
+</head>
+<body>
+    <form action="http://b.weiming.com:8080/addUser" method="post" target="ifr1">
+        <input type="text" name="username" value="" />
+        <input type="hidden" name="proxy" value="http://a.weiming.com:8080/agency/b.html" />
+        <input type="submit" value="提交" />
+    </form>
+    <iframe name="ifr1" id="ifr1" src=""></iframe>
+    <script>
+        var oIfr1 = document.getElementById('ifr1');
+
+        oIfr1.onload = function(){
+            console.log(this.contentWindow.location.href);
+        }
+    </script>
+</body>
+</html>

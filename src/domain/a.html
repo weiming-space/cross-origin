@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>domain A</title>
+</head>
+<body>
+    <p>
+        A页面:<input type="text" value="" id="txtA" />
+    </p>
+    <iframe id="ifr1" src="http://b.weiming.com:8080/domain/b.html"></iframe>
+    <script>
+        //降域实现
+        document.domain = 'weiming.com';
+
+        var oTxtA = document.getElementById('txtA');
+        var oIfr1 = document.getElementById('ifr1');
+
+        oTxtA.oninput = function(){
+            var oTxtB = oIfr1.contentWindow.document.getElementById('txtB');
+            oTxtB.value = this.value;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>domain A</title>
+</head>
+<body>
+    <p>
+        A页面:<input type="text" value="" id="txtA" />
+    </p>
+    <iframe id="ifr1" src="http://b.weiming.com:8080/postMessage/b.html"></iframe>
+    <script>
+        var oTxtA = document.getElementById('txtA');
+        var oIfr1 = document.getElementById('ifr1');
+
+        oTxtA.oninput = function(){
+            oIfr1.contentWindow.postMessage(this.value, '*');
+        }
+        window.onmessage = function(e){
+            oTxtA.value = typeof e.data === 'string' ? e.data : '';
+        }
+    </script>
+</body>
+</html>

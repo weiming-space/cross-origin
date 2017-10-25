@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>domain B</title>
+</head>
+<body>
+    <p>
+        B页面:<input type="text" value="" id="txtB" />
+    </p>
+    <script type="text/javascript">
+        var oTxtB = document.getElementById('txtB');
+        oTxtB.oninput = function(){
+            window.parent.postMessage({a:1}, '*');
+        }
+        window.onmessage = function(e){
+            oTxtB.value = typeof e.data === 'string' ? e.data : '';
+        }
+    </script>
+</body>
+</html>

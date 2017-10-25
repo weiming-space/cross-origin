@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <script src="ajax.js"></script>
+    <script>
+
+    ajax({
+        url: 'http://b.weiming.com:8080/cors',
+        callback: function(data){
+            console.log(data);
+            document.getElementById('div1').innerHTML = JSON.parse(data).data.text;
+        }
+    });
+    </script>
+</body>
+</html>

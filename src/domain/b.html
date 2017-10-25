@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>domain B</title>
+</head>
+<body>
+    <p>
+        B页面:<input type="text" value="" id="txtB" />
+    </p>
+    <script type="text/javascript">
+        //降域实现
+        document.domain = 'weiming.com';
+
+        var oTxtB = document.getElementById('txtB');
+
+        oTxtB.oninput = function(){
+            var oTxtA = window.parent.document.getElementById('txtA');
+            oTxtA.value = this.value;
+        }
+    </script>
+</body>
+</html>
